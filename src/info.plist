@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.cesalazar.openwith</string>
+	<key>category</key>
+	<string>Mine</string>
+	<key>connections</key>
+	<dict>
+		<key>16F50928-BDC7-4B37-AFE5-136487D8A62C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E7C7B2CA-5906-46F7-8788-2E1F5B006014</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>5CB510DB-D353-4AF8-89FE-F89C01EA46D6</key>
+		<array/>
+		<key>E7C7B2CA-5906-46F7-8788-2E1F5B006014</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5CB510DB-D353-4AF8-89FE-F89C01EA46D6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Carlos E. Salazar</string>
+	<key>description</key>
+	<string>Open Finder's selected file on desired app</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Open with...</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>31</integer>
+				<key>hotmod</key>
+				<integer>262144</integer>
+				<key>hotstring</key>
+				<string>O</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedApps</key>
+				<array>
+					<string>com.apple.finder</string>
+				</array>
+				<key>relatedAppsMode</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>16F50928-BDC7-4B37-AFE5-136487D8A62C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+
+set finderSelection to ""
+set theTarget to ""
+set appPath to path to application q
+
+tell application "Finder"
+
+    set finderSelection to (get selection)
+    set theTarget to finderSelection
+
+    tell application "Finder"
+        open theTarget using appPath
+    end tell
+
+end tell
+
+end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>5CB510DB-D353-4AF8-89FE-F89C01EA46D6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<true/>
+				<key>keyword</key>
+				<string>openwith</string>
+				<key>scopes</key>
+				<array>
+					<string>/Applications</string>
+					<string>/opt/homebrew-cask/Caskroom</string>
+					<string>~/Applications</string>
+				</array>
+				<key>title</key>
+				<string>Select an app to open this file</string>
+				<key>types</key>
+				<array>
+					<string>com.apple.application-bundle</string>
+					<string>public.symlink</string>
+				</array>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>E7C7B2CA-5906-46F7-8788-2E1F5B006014</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>This workflow is based on "Open with Sublime Text 2" by Franz Heidl
+www.franzheidl.de
+
+Icon by Cole Bemis
+License: Creative Commons (Attribution 3.0 Unported) 
+www.iconfinder.com/icons/227574/open_icon
+
+====
+
+Open selected file on any program. This basically is a shortcut to Alfred's "Open with..." command using a hotkey instead of navigating through Alfred's menu.
+
+Usage:
+Assign a Hotkey, select a file on Finder and choose an app to open the file.
+
+Note for homebrew-cask users:
+File filter doesn't recognize the aliases under ~/Applications/, that's why /opt/homebrew-cask-Caskroom/ is added.</string>
+	<key>uidata</key>
+	<dict>
+		<key>16F50928-BDC7-4B37-AFE5-136487D8A62C</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>5CB510DB-D353-4AF8-89FE-F89C01EA46D6</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>E7C7B2CA-5906-46F7-8788-2E1F5B006014</key>
+		<dict>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
