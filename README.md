@@ -7,7 +7,7 @@ This is basically a shortcut to Alfred's "Open with..." command using a hotkey (
 Install
 ---
 
-Download open-with.alfredworkflow and open the file using [Alfred 2](http://www.alfredapp.com/).
+Download [open-with.alfredworkflow](https://github.com/cesalazar/alfred-open-with/blob/master/open-with.alfredworkflow?raw=true) and open the file using [Alfred 2](http://www.alfredapp.com/).
 
 P.S.: You need to [buy the Powerpack](https://buy.alfredapp.com/) to use this workflow.
 
